@@ -12,6 +12,12 @@ Working principle is very simple
 There is also a \PhpJsonRpc2\ICallStrategy interface that can configure \PhpJsonRpc2\JsonRpcServer for changing strategy of calling procedure.
 By default \PhpJsonRpc2\JsonRpcServer is configured by strategy \PhpJsonRpc2\ClassMethodCallStrategy, that divide request parameter "method"(for example Calculator.sum) by dot and create "Calculator" instance and call its method "sum".
 
+Installation using composer
+
+```
+$ composer require composer require mihasicehcek/php_json_rpc_2_server
+```
+
 ##Examples
 
 ###Simple Example
