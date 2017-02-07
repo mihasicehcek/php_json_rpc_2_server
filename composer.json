@@ -1,0 +1,25 @@
+{
+    "name": "mihasicehcek/php_json_rpc_2_server",
+    "description": "php realisation of JSON RPC 2 Specification",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mihail Lebedev",
+            "email": "mihasichechek@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src",
+            "tests"
+        ]
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "mihasicehcek/json_parser": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    }
+}
