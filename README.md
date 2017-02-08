@@ -2,6 +2,10 @@
 
 ## Description
 
+[![Latest Stable Version](https://poser.pugx.org/mihasicehcek/php_json_rpc_2_server/version)](https://packagist.org/packages/mihasicehcek/php_json_rpc_2_server)
+[![Total Downloads](https://poser.pugx.org/mihasicehcek/php_json_rpc_2_server/downloads)](https://packagist.org/packages/mihasicehcek/php_json_rpc_2_server)
+[![License](https://poser.pugx.org/mihasicehcek/php_json_rpc_2_server/license)](https://packagist.org/packages/mihasicehcek/php_json_rpc_2_server)
+
 It is php implementation of the [JSON-RPC 2.0](http://www.jsonrpc.org/specification "Specification") server
 
 Working principle is very simple
