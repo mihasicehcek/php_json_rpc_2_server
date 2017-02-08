@@ -11,11 +11,15 @@
     ],
     "autoload": {
         "classmap": [
-            "src",
+            "src"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
             "tests"
         ]
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "mihasicehcek/json_parser": "dev-master"
     },
