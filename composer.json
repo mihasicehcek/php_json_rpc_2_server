@@ -19,7 +19,6 @@
             "tests"
         ]
     },
-    "minimum-stability": "stable",
     "require": {
         "mihasicehcek/json_parser": "dev-master"
     },
