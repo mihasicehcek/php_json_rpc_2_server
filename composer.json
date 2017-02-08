@@ -20,7 +20,7 @@
         ]
     },
     "require": {
-        "mihasicehcek/json_parser": "dev-master"
+        "mihasicehcek/json_parser": "1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "5.5.*"
