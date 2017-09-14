@@ -49,4 +49,44 @@ class PublicClassMethodCallStrategyTest extends TestCase
         $this->assertEquals(25, $response->result);
     }
 
+
+    public function testCallCustomPublicClass(){
+        $jsonRpcServer = new JsonRpcServer();
+
+        $request = json_encode(["jsonrpc" => "2.0", "method" => "\\PhpJsonRpc2\\Tests\\CustomPermmitedCalculator.add", "params" => ['a' => 10, 'b' => 15], "id" => 1]);
+
+        $jsonRpcServer->setRequestAsJson($request);
+        $jsonRpcServer->setCallStrategy(new PublicClassMethodCallStrategy(PublicClassMethodCallStrategyTestInterface::class));
+
+        $response = $jsonRpcServer->getResponse();
+
+        $response = json_decode(json_encode($response));
+
+        $this->assertObjectHasAttribute("result", $response);
+        $this->assertObjectHasAttribute("id", $response);
+        $this->assertEquals(1, $response->id);
+        $this->assertEquals(25, $response->result);
+    }
+
+
+    public function testCallCustomprotectionClass(){
+        $jsonRpcServer = new JsonRpcServer();
+
+        $request = json_encode(["jsonrpc" => "2.0", "method" => "\\PhpJsonRpc2\\Tests\\PublicCalculator.add", "params" => ['a' => 10, 'b' => 15], "id" => 1]);
+
+        $jsonRpcServer->setRequestAsJson($request);
+        $jsonRpcServer->setCallStrategy(new PublicClassMethodCallStrategy(PublicClassMethodCallStrategyTestInterface::class));
+
+        $response = $jsonRpcServer->getResponse();
+
+        $response = json_decode(json_encode($response));
+
+        $this->assertObjectHasAttribute("error", $response);
+        $this->assertObjectHasAttribute("id", $response);
+        $this->assertObjectHasAttribute("code", $response->error);
+        $this->assertObjectHasAttribute("message", $response->error);
+        $this->assertEquals(-32601, $response->error->code);
+        $this->assertEquals("Method not found", $response->error->message);
+    }
+
 }

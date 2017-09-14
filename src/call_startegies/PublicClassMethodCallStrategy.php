@@ -6,6 +6,13 @@ namespace PhpJsonRpc2;
 class PublicClassMethodCallStrategy implements ICallStrategy
 {
 
+    private $permitionClass;
+
+    public function __construct($permitionClass = null)
+    {
+        $this->permitionClass = $permitionClass ? $permitionClass : PublicController::class;
+    }
+
     /**
      * @param $method string method name
      *
@@ -33,7 +40,7 @@ class PublicClassMethodCallStrategy implements ICallStrategy
             $refClass = new \ReflectionClass($class);
 
             $controller = new $class();
-            if(!($controller instanceof PublicController)){
+            if(!($controller instanceof $this->permitionClass)){
                 throw new MethodDoesNotExistException();
             }
 
